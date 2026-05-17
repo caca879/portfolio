@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project — Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --muted: #888;
+      --border: #e8e4e0;
+      --pink: #d4849a;
+      --pink-light: #f5e8ec;
+      --pink-mid: #c47088;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Geist Mono', monospace;
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3.5rem;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo em { color: var(--pink); font-style: italic; }
+
+    .back-link {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .back-link:hover { color: var(--pink); }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 9rem 2rem 6rem;
+    }
+
+    .project-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+      display: block;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.05s ease both;
+    }
+
+    .project-title em { font-style: italic; color: var(--pink); }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .meta-item {}
+    .meta-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+    .meta-value { font-size: 0.82rem; color: var(--text); }
+    .meta-value a { color: var(--pink); text-decoration: none; }
+    .meta-value a:hover { text-decoration: underline; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .project-body {
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+
+    .project-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin: 2.5rem 0 0.8rem;
+      color: var(--text);
+    }
+
+    .project-body p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-body p strong { color: var(--text); font-weight: 400; }
+
+    .project-body ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .project-body ul li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .project-body ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--pink);
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--pink-light);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 2.5rem 0;
+      border-radius: 2px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-pink { background: var(--pink); color: #fff; }
+    .btn-pink:hover { background: var(--pink-mid); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--pink); color: var(--pink); }
+
+    /* OTHER PROJECTS */
+    .other-projects {
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .other-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .other-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .other-card {
+      background: var(--bg);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+
+    .other-card:hover { background: var(--pink-light); }
+
+    .other-num { font-size: 0.6rem; color: var(--pink); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+
+    .other-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .other-short { font-size: 0.72rem; color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy { font-size: 0.7rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.8rem; }
+
+    .footer-links a {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--pink); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1.2rem 1.5rem; }
+      main { padding: 7rem 1.5rem 4rem; }
+      .other-grid { grid-template-columns: 1fr; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Your<em>Name</em></a>
+  <a href="index.html#projects" class="back-link">← All projects</a>
+</nav>
+
+<main id="main-content">
+  <!-- Populated by JS -->
+</main>
+
+<footer>
+  <span class="footer-copy">© 2026 Your Name</span>
+  <div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Resume</a>
+  </div>
+</footer>
+
+<script>
+  // ─── PROJECT DATA ───────────────────────────────────────────────
+  // Edit this object to add/update your projects.
+  // Each project has: title, subtitle, year, role, tags, liveUrl, githubUrl,
+  //                   overview, challenge, outcome, features[]
+  const projects = {
+    1: {
+      title: "Project One",
+      subtitle: "A short one-liner about what this does.",
+      year: "2024",
+      role: "Full-Stack Developer",
+      tags: ["React", "Node.js", "PostgreSQL"],
+      liveUrl: "#",
+      githubUrl: "#",
+      overview: "Give a clear, engaging overview of what this project is and why it exists. What problem does it solve? Who is it for? This is the first thing a recruiter or hiring manager will read, so make it count.",
+      challenge: "Describe the hardest technical or design challenge you faced while building this. Did you have to learn something new? Did you solve a tricky bug or architect something complex? Concrete details here make you memorable.",
+      outcome: "What was the result? Did you ship it to users? Did it save time, improve performance, or grow a user base? Numbers are great here — 40% faster load time, 500 active users, reduced error rate by 60%, etc.",
+      features: [
+        "Key feature or technical highlight #1",
+        "Key feature or technical highlight #2",
+        "Key feature or technical highlight #3",
+        "Key feature or technical highlight #4",
+      ]
+    },
+    2: {
+      title: "Project Two",
+      subtitle: "Brief description of the second project.",
+      year: "2023",
+      role: "Backend Developer",
+      tags: ["Python", "FastAPI", "Docker"],
+      liveUrl: "#",
+      githubUrl: "#",
+      overview: "Overview of project two. Explain what it does and why you built it. Keep it focused and jargon-free — write as if you're explaining it to a smart person who isn't a developer.",
+      challenge: "What was the core technical challenge? Maybe it was scaling, or integrating a complex API, or designing a system that had to be highly reliable. Be specific.",
+      outcome: "What did you achieve? What impact did this project have? Even personal projects have outcomes — did you learn a new skill? Did it get used by others?",
+      features: [
+        "Key feature or technical highlight #1",
+        "Key feature or technical highlight #2",
+        "Key feature or technical highlight #3",
+      ]
+    },
+    3: {
+      title: "Project Three",
+      subtitle: "What makes this project interesting or challenging.",
+      year: "2023",
+      role: "Frontend Developer",
+      tags: ["TypeScript", "Next.js"],
+      liveUrl: "#",
+      githubUrl: "#",
+      overview: "Overview of project three. What is it, why does it exist, and what does it accomplish? This should be 2–3 sentences that immediately communicate the value of the project.",
+      challenge: "Describe the most interesting technical problem you solved here. Was it a performance issue? A complex UI? An architectural decision? Show your thinking process.",
+      outcome: "What came out of this project? Launched product, open source tool, internal tool used by a team — anything that shows real-world impact.",
+      features: [
+        "Key feature or technical highlight #1",
+        "Key feature or technical highlight #2",
+        "Key feature or technical highlight #3",
+      ]
+    },
+    4: {
+      title: "Project Four",
+      subtitle: "A side project, experiment, or open source contribution.",
+      year: "2022",
+      role: "Solo Developer",
+      tags: ["Vue", "Firebase"],
+      liveUrl: "#",
+      githubUrl: "#",
+      overview: "Overview of project four. Side projects are great for showing passion and initiative. Explain what inspired you to build this and what you learned from the experience.",
+      challenge: "What was the hardest part of building this on your own? Time management, unfamiliar tech, or a complex feature — show that you can push through obstacles.",
+      outcome: "What did you take away from this? New skills, a shipped product, or valuable experience — any outcome is worth sharing.",
+      features: [
+        "Key feature or technical highlight #1",
+        "Key feature or technical highlight #2",
+      ]
+    }
+  };
+  // ────────────────────────────────────────────────────────────────
+
+  function getOtherProjects(currentId) {
+    return Object.entries(projects)
+      .filter(([id]) => id !== String(currentId))
+      .slice(0, 3);
+  }
+
+  function render() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id') || '1';
+    const p = projects[id];
+
+    if (!p) {
+      document.getElementById('main-content').innerHTML = `
+        <div style="text-align:center;padding:4rem 0;color:var(--muted)">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:2rem;margin-bottom:1rem">Project not found.</p>
+          <a href="index.html#projects" style="color:var(--pink);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;">← Back to projects</a>
+        </div>`;
+      return;
+    }
+
+    document.title = `${p.title} — Your Name`;
+
+    const others = getOtherProjects(id);
+
+    const otherCardsHtml = others.map(([oid, op], i) => `
+      <a class="other-card" href="project.html?id=${oid}">
+        <div class="other-num">0${oid}</div>
+        <div class="other-name">${op.title}</div>
+        <div class="other-short">${op.subtitle}</div>
+      </a>
+    `).join('');
+
+    document.getElementById('main-content').innerHTML = `
+      <span class="project-label">0${id} — Project</span>
+      <h1 class="project-title">${p.title}<br/><em>${p.subtitle}</em></h1>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Year</div>
+          <div class="meta-value">${p.year}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">${p.role}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Stack</div>
+          <div class="meta-value">
+            <div class="project-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Links</div>
+          <div class="meta-value">
+            <a href="${p.liveUrl}" target="_blank">Live ↗</a>
+            &nbsp;&nbsp;
+            <a href="${p.githubUrl}" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="project-image">[ Add a screenshot or demo image here ]</div>
+
+        <h2>Overview</h2>
+        <p>${p.overview}</p>
+
+        <h2>The Challenge</h2>
+        <p>${p.challenge}</p>
+
+        <h2>Key Features</h2>
+        <ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+
+        <h2>Outcome</h2>
+        <p>${p.outcome}</p>
+      </div>
+
+      <div class="project-links">
+        <a href="${p.liveUrl}" target="_blank" class="btn btn-pink">View live ↗</a>
+        <a href="${p.githubUrl}" target="_blank" class="btn btn-outline">GitHub</a>
+        <a href="index.html#projects" class="btn btn-outline">← All projects</a>
+      </div>
+
+      <div class="other-projects">
+        <span class="other-label">Other projects</span>
+        <div class="other-grid">${otherCardsHtml}</div>
+      </div>
+    `;
+  }
+
+  render();
+</script>
+
+</body>
+</html>
