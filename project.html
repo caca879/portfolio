@@ -297,7 +297,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">Your<em>Name</em></a>
+  <a href="index.html" class="logo">Nur<em>AIsyah</em></a>
   <a href="index.html#projects" class="back-link">← All projects</a>
 </nav>
 
@@ -321,21 +321,23 @@
   //                   overview, challenge, outcome, features[]
   const projects = {
     1: {
-      title: "Project One",
-      subtitle: "A short one-liner about what this does.",
-      year: "2024",
-      role: "Full-Stack Developer",
-      tags: ["React", "Node.js", "PostgreSQL"],
+      title: "AgriNeura",
+      subtitle: "An AI-Powered Hydroponics Intervention System",
+      year: "2025 - 2026",
+      role: "Full-Stack Developer & AI Engineer",
+      tags: ["React", "FastAPI", "Spring Boot", "PostgreSQL", "ChromaDB", "AWS EC2", "NGINX", "TPOT", "RAG"],
       liveUrl: "#",
       githubUrl: "#",
-      overview: "Give a clear, engaging overview of what this project is and why it exists. What problem does it solve? Who is it for? This is the first thing a recruiter or hiring manager will read, so make it count.",
-      challenge: "Describe the hardest technical or design challenge you faced while building this. Did you have to learn something new? Did you solve a tricky bug or architect something complex? Concrete details here make you memorable.",
-      outcome: "What was the result? Did you ship it to users? Did it save time, improve performance, or grow a user base? Numbers are great here — 40% faster load time, 500 active users, reduced error rate by 60%, etc.",
+      overview: "AgriNeura is an intelligent agricultural monitoring and decision-support system built for hydroponic and controlled-environment farms. It bridges the gap between traditional farming and smart agriculture using AI — giving farmers real-time sensor dashboards, data-driven yield predictions, and a personalized AI chatbot advisor, all in one platform. The system was developed as my Final Year Project at Universiti Putra Malaysia.",
+      challenge: "The core challenge was building a hybrid yield prediction model that was both biologically accurate and data-driven. Pure machine learning models (like TPOT decision trees) can capture complex sensor relationships but don't respect biological growth curves. S-curve (logistic) models are biologically plausible but can't adapt to live sensor conditions. I had to combine both approaches into a single prediction pipeline — training TPOT models per crop growth stage while anchoring predictions to S-curve trajectories, so the system produces forecasts that are both statistically sound and realistically shaped. Building a RAG pipeline that could inject live sensor context into LLM responses was another major technical challenge.",
+      outcome: "AgriNeura was successfully evaluated against existing systems and demonstrated stronger contextual relevance in advisory responses compared to a baseline LLM (ChatGPT). The system achieved good predictive accuracy across decision-day models (measured by MAE, RMSE, and R²). The platform supports full crop lifecycle management — from farm setup and cycle creation to harvest logging and analytics — and scored positively in user acceptance testing. Sub-optimal environmental management in hydroponics can reduce yields by 15–30%; AgriNeura directly targets this gap with continuous monitoring and early risk detection.",
       features: [
-        "Key feature or technical highlight #1",
-        "Key feature or technical highlight #2",
-        "Key feature or technical highlight #3",
-        "Key feature or technical highlight #4",
+        "Microservice architecture with NGINX routing across React, Spring Boot, and Python FastAPI services",
+        "Hybrid yield prediction combining TPOT machine learning models with S-curve biological growth modeling",
+        "RAG-powered AI chatbot that pairs real-time sensor context with embedded agricultural knowledge documents",
+        "Risk status classification system (ON_TRACK / AT_RISK) with real-time sensor monitoring dashboard",
+        "Full crop lifecycle management: farm setup, crop cycles, daily sensor logs, harvest records, and analytics",
+        "Deployed on AWS EC2 with PostgreSQL for relational data and ChromaDB as a vector database for RAG",
       ]
     },
     2: {
