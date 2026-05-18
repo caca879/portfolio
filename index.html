@@ -101,7 +101,7 @@
 
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
       font-weight: 300;
       line-height: 1.05;
       letter-spacing: -0.01em;
@@ -515,29 +515,34 @@
 
   <section id="contact">
     <span class="label reveal">Contact</span>
-    <p class="contact-intro reveal">Let's build something<br/><em>worth building.</em></p>
-    <div class="contact-form reveal">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Jane Smith"/>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jane@example.com"/>
-        </div>
+    <p class="contact-intro reveal">Let's connect.<br/><em>I'd love to hear from you.</em></p>
+      <div class="reveal" style="display:grid; gap:1.5rem; margin-top:1rem;">
+
+      <div style="display:grid; grid-template-columns:100px 1fr; gap:0.5rem; align-items:start;">
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-top:0.1rem;">Email</span>
+        <a href="n.aisyah2306@gmail.com" style="color:var(--pink);text-decoration:none;font-size:0.85rem;">yourname@email.com</a>
       </div>
-      <div class="form-group">
-        <label>Subject</label>
-        <input type="text" placeholder="Job opportunity / Project / Just saying hi"/>
+
+      <div style="display:grid; grid-template-columns:100px 1fr; gap:0.5rem; align-items:start;">
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-top:0.1rem;">Phone</span>
+        <a href="tel:+6011 555 23063" style="color:var(--text);text-decoration:none;font-size:0.85rem;">+60 1X-XXX XXXX</a>
       </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea placeholder="Tell me about your project or opportunity..."></textarea>
+
+      <div style="display:grid; grid-template-columns:100px 1fr; gap:0.5rem; align-items:start;">
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-top:0.1rem;">LinkedIn</span>
+        <a href="linkedin.com/in/nur-aisyah-zulkifly-8a7158358" target="_blank" style="color:var(--pink);text-decoration:none;font-size:0.85rem;">linkedin.com/in/yourprofile</a>
       </div>
-      <div>
-        <button class="btn btn-pink" onclick="handleSubmit()">Send message</button>
+
+      <div style="display:grid; grid-template-columns:100px 1fr; gap:0.5rem; align-items:start;">
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-top:0.1rem;">GitHub</span>
+        <a href="https://github.com/caca879" target="_blank" style="color:var(--pink);text-decoration:none;font-size:0.85rem;">github.com/caca879</a>
       </div>
+
+      <div style="display:grid; grid-template-columns:100px 1fr; gap:0.5rem; align-items:start;">
+        <span style="font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding-top:0.1rem;">Location</span>
+        <span style="color:var(--text);font-size:0.85rem;">Bangi, Selangor, Malaysia</span>
+      </div>
+
     </div>
   </section>
 
